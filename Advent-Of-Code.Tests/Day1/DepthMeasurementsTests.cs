@@ -11,8 +11,8 @@ namespace Advent_Of_Code.Tests.Day1
     public class DepthMeasurementsTests
     {
         [Theory]
-        [InlineData(new int[] { 1, 2, 3, 4 }, 3)]
-        [InlineData(new int[] { 199,200,208,210,200,207,240,269,260,263}, 7)]
+        [InlineData(new int[] { 1, 2, 3, 4 }, 1)]
+        [InlineData(new int[] { 199,200,208,210,200,207,240,269,260,263}, 5)]
         [InlineData(new int[] {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0}, 0)]
         public void DepthMasurements_GivenMeasurements_ReturnsIncreaseAmount(IEnumerable<int> measurements, int expected)
         {

@@ -10,13 +10,15 @@ namespace Advent_Of_Code.Day1
     {
         public static int Measure(IEnumerable<int> measurements)
         {
-            int? lastMeasurement = null;
             int increases = 0;
+            List<int> measurementsList = measurements.ToList();
 
-            foreach (var measurement in measurements)
+            for (int i = 3; i < measurementsList.Count; i++)
             {
-                if (lastMeasurement != null && lastMeasurement < measurement) increases++;
-                lastMeasurement = measurement;
+                if (measurementsList[i] > measurementsList[i - 3])
+                {
+                    increases++;
+                }
             }
 
             return increases;
