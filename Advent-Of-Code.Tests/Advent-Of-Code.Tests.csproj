@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Advent-Of-Code\Advent-Of-Code.csproj" />
+  </ItemGroup>
+
 </Project>
