@@ -1,4 +1,5 @@
 ﻿using Advent_Of_Code.Day2;
+using Advent_Of_Code.Day2.Part2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,11 @@ namespace Advent_Of_Code.Tests.Day2
     public class NavigationTests
     {
         [Theory]
-        [InlineData(new string[] { "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" }, 150)]
+        [InlineData(new string[] { "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" }, 900)]
         public void NavigationGivenMoveInstructions_ReturnsPosition(string[] movements, int expected)
         {
             //Arrange
-            Navigation navigation = new();
+            NavigationPart2 navigation = new();
 
             //Act
             foreach (var movement in movements)

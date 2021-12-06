@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Advent_Of_Code.Day2
 {
-    public class Navigation
+    public class NavigationPart1 : INavigation
     {
         public int Position { get { return Horizontal * Vertical; } }
         private int Horizontal { get; set; }

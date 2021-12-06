@@ -10,9 +10,9 @@ namespace Advent_Of_Code.Day1
     public class Submarine
     {
         private readonly Sonar _sonar;
-        private readonly Navigation _navigation;
+        private readonly INavigation _navigation;
 
-        public Submarine(Sonar sonar,Navigation navigation)
+        public Submarine(Sonar sonar,INavigation navigation)
         {
             _sonar = sonar;
             _navigation = navigation;
