@@ -8,52 +8,48 @@ namespace Advent_Of_Code.Day3.Part1
 {
     public class PowerPart1 : IPower
     {
+        private string _gamma = String.Empty;
+        private string _epsilon = String.Empty;
+
+
         public decimal ParseReport(List<string> report)
         {
-            string gamma = String.Empty;
-            string epsilon = String.Empty;
             int halve = report.Count / 2;
 
             for (int i = 0; i < report[0].Length; i++)
             {
-                int zeros = CountNumberOfZeros(report, i);
-                AddBitsToGammaAndApsilon(ref gamma, ref epsilon, halve, zeros);
+                int zeros = ReportParser.CountNumberOfZeros(report, i);
+                int ZerosMore = ReportParser.ZerosMoreThanHalf(halve, zeros);
+                AddGammaNumber(ZerosMore);
+                AddEpsilonNumber(ZerosMore);
+
             }
-            return CalculatePowerConsumption(gamma, epsilon);
+            return CalculatePowerConsumption();
         }
 
-        private static decimal CalculatePowerConsumption(string gamma, string epsilon)
+        private void AddGammaNumber(int ZerosMore)
         {
-            return Convert.ToInt32(gamma, 2) * Convert.ToInt32(epsilon, 2);
+            if (ZerosMore > 0)
+            {
+                _gamma += 0;
+                return;
+            }
+            _gamma += 1;
         }
-
-        private static void AddBitsToGammaAndApsilon(ref string gamma, ref string epsilon, int halve, int zeros)
+        private void AddEpsilonNumber(int ZerosMore)
         {
-            if (zeros > halve)
+            if (ZerosMore > 0)
             {
-                gamma += 0;
-                epsilon += 1;
+                _epsilon += 1;
+                return;
             }
-            else
-            {
-                gamma += 1;
-                epsilon += 0;
-            }
+            _epsilon += 0;
         }
 
-        private static int CountNumberOfZeros(List<string> report, int i)
+        private decimal CalculatePowerConsumption()
         {
-            int zeros = 0;
-
-            for (int j = 0; j < report.Count; j++)
-            {
-                if (report[j][i] == '0')
-                {
-                    zeros++;
-                }
-            }
-
-            return zeros;
+            return Convert.ToInt32(_gamma, 2) * Convert.ToInt32(_epsilon, 2);
         }
+
     }
 }
