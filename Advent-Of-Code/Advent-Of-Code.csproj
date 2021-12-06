@@ -8,4 +8,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Day3\Part2\" />
+  </ItemGroup>
+
 </Project>
