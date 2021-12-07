@@ -4,13 +4,23 @@ using Advent_Of_Code.Day2;
 using Advent_Of_Code.Day2.Part2;
 using Advent_Of_Code.Day3.Part1;
 using Advent_Of_Code.Day3.Part2;
+using Advent_Of_Code.Day4.Part1;
 
-Sonar sonar = new();
-NavigationPart2 navigation = new();
-LifeSupport power = new();
-Submarine submarine = new(sonar, navigation, power);
+//Sonar sonar = new();
+//NavigationPart2 navigation = new();
+//LifeSupport power = new();
+//Submarine submarine = new(sonar, navigation, power);
 
-submarine.PowerConsumption(@"C:\Code_Projects\2021\Advent-Of-Code\Advent-Of-Code\Advent-Of-Code\Day3\Input\PowerReport.txt");
+Bingo bingo = new(@"C:\Code_Projects\2021\Advent-Of-Code\Advent-Of-Code\Advent-Of-Code\Day4\Input\Bingo.txt");
+
+Console.WriteLine(bingo.FindLoser());
+
+
+//Console.WriteLine(bingo.FindWinner());
+
+
+
+//submarine.PowerConsumption(@"C:\Code_Projects\2021\Advent-Of-Code\Advent-Of-Code\Advent-Of-Code\Day3\Input\PowerReport.txt");
 
 //submarine.Move(@"C:\Code_Projects\2021\Advent-Of-Code\Advent-Of-Code\Advent-Of-Code\Day2\Input\movements.txt");
 
