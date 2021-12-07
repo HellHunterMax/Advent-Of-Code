@@ -11,8 +11,7 @@
             Numbers = numbers;
         }
 
-        public delegate void NumberCalledEventHandler(object source, NumberEventArgs args);
-        public event NumberCalledEventHandler NumberCalled;
+        public event EventHandler<NumberEventArgs> NumberCalled;
 
         public void CallNumber()
         {
