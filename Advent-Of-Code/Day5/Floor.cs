@@ -12,7 +12,10 @@ namespace Advent_Of_Code.Day5
         //X = horizontal Y = vertical
         public List<List<int>> FloorPlan = new();
 
-        public int NumberOfDangerousVents()
+        /// <summary>
+        /// </summary>
+        /// <returns>The number of overlapping vents</returns>
+        public int CountDangerousVents()
         {
             int count = 0;
             foreach (var y in FloorPlan)
@@ -28,6 +31,11 @@ namespace Advent_Of_Code.Day5
             return count;
         }
 
+        /// <summary>
+        /// Adds Vent places between the two points.
+        /// </summary>
+        /// <param name="start">start of the vent.</param>
+        /// <param name="end">end of the vent.</param>
         public void AddVent(Point start, Point end)
         {
             if (DoesFloorPlanNeedEnlargement(start, end))
@@ -50,13 +58,22 @@ namespace Advent_Of_Code.Day5
 
         private List<Point> BuildVentPoints(Point start, Point end)
         {
+            //TODO refactor BuildVentPoints
             if (start.Y == end.Y)
             {
-                return BuildHorizontalPoints(start, end);
+                if (start.X < end.X)
+                {
+                    return BuildHorizontalPoints(start, end);
+                }
+                return BuildVerticalPoints(end, start);
             }
             if (start.X == end.X)
             {
-                return BuildVerticalPoints(start, end);
+                if (start.Y < end.Y)
+                {
+                    return BuildVerticalPoints(start, end);
+                }
+                return BuildVerticalPoints(end, start);
             }
             return new List<Point>();
         }
