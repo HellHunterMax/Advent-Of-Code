@@ -63,7 +63,7 @@ namespace Advent_Of_Code.Day5
             {
                 if (start.X < end.X)
                 {
-                    return BuildHorizontalPoints(start, end);
+                    return BuildVerticalPoints(start, end);
                 }
                 return BuildVerticalPoints(end, start);
             }
@@ -71,9 +71,9 @@ namespace Advent_Of_Code.Day5
             {
                 if (start.Y < end.Y)
                 {
-                    return BuildVerticalPoints(start, end);
+                    return BuildHorizontalPoints(start, end);
                 }
-                return BuildVerticalPoints(end, start);
+                return BuildHorizontalPoints(end, start);
             }
             return new List<Point>();
         }
@@ -96,7 +96,8 @@ namespace Advent_Of_Code.Day5
             int x = end.X;
             for (int y = start.Y; y <= end.Y; y++)
             {
-                points.Add(new Point( x, y));
+                points.Add(new Point(x, y));
+
             }
             return points;
         }
@@ -105,16 +106,24 @@ namespace Advent_Of_Code.Day5
         {
             int sizeFloorPlanNeeds = GetLargest(points);
 
-            return FloorPlan.Count < sizeFloorPlanNeeds;
+            return FloorPlan.Count <= sizeFloorPlanNeeds;
         }
 
         private void EnlargeFloorPlan(params Point[] points)
         {
             int newFloorPlanSize = GetLargest(points);
-            
-            for (int i = FloorPlan.Count; i < newFloorPlanSize; i++)
+            int ySize = FloorPlan.Count;
+
+            for (int y = 0; y <= newFloorPlanSize; y++)
             {
-                FloorPlan.Add(new List<int>());
+                if (y >= ySize)
+                {
+                    FloorPlan.Add(new List<int>());
+                }
+                for (int x = FloorPlan[y].Count; x <= newFloorPlanSize; x++)
+                {
+                    FloorPlan[y].Add(0);
+                }
             }
         }
 
