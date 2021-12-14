@@ -14,7 +14,7 @@ namespace Advent_Of_Code.Tests.Day5
         public void ScannerFloorCountDangerousVents_GivenFloorPlan_ReturnsNumberOFDangerousVents()
         {
             Scanner scanner = new Scanner();
-            const int expected = 5;
+            const int expected = 12;
 
             scanner.BuildFloorPlan(@"C:\Code_Projects\2021\Advent-Of-Code\Advent-Of-Code\Advent-Of-Code.Tests\Day5\input\Vents.txt");
             var actual = scanner.Floor.CountDangerousVents();

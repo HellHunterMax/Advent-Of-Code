@@ -75,7 +75,65 @@ namespace Advent_Of_Code.Day5
                 }
                 return BuildHorizontalPoints(end, start);
             }
+            
+            if (IsDiagonal(start, end))
+            {
+                return BuildDiagonalVents(start, end);
+            }
             return new List<Point>();
+        }
+
+        private List<Point> BuildDiagonalVents(Point start, Point end)
+        {
+            //TODO BuildDiagonalVents
+            // 1,1 3,3 && 9,7 7,9,
+            List<Point> points = new();
+            if (start.X < end.X && start.Y < end.Y)//RightDown
+            {
+                return BuildDiagonalRightDownPoints(start, end);
+            }
+            else if (start.X > end.X && start.Y > end.Y)//LeftUp
+            {
+                return BuildDiagonalRightDownPoints(end, start);
+            }
+            else if (start.X > end.X && start.Y < end.Y)//Going Left up
+            {
+                return BuildDiagonalRightUpPoints(end, start);
+            }
+            else if (start.X < end.X && start.Y > end.Y)//Going Right Up
+            {
+                return BuildDiagonalRightUpPoints(start, end);
+            }
+            return points;
+        }
+
+        private List<Point> BuildDiagonalRightUpPoints(Point start, Point end)
+        {
+            List<Point> points = new();
+            int numberOfPoints = Math.Abs(start.X - end.X);
+            for (int x = start.X, y = start.Y, i = 0; i <= numberOfPoints; x++, y--, i++)
+            {
+                points.Add(new Point(x, y));
+            }
+            return points;
+        }
+
+        private List<Point> BuildDiagonalRightDownPoints(Point start, Point end)
+        {
+            List<Point> points = new();
+            int xx = Math.Abs(start.X - end.X);
+            for (int x = start.X, y = start.Y, i = 0; i <= xx; x++, y++, i++)
+            {
+                points.Add(new Point(x, y));
+            }
+            return points;
+        }
+
+        private bool IsDiagonal(Point start, Point end)
+        {
+            int xx = Math.Abs(start.X - end.X);
+            int yy = Math.Abs(start.Y - end.Y);
+            return xx == yy;
         }
 
         private List<Point> BuildVerticalPoints(Point start, Point end)
