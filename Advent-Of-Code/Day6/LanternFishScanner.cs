@@ -14,7 +14,7 @@ namespace Advent_Of_Code.Day6
 
         public event EventHandler DayAdded;
 
-        public int FishCount()
+        public long CountFish()
         {
             return LanternFish.Count;
         }

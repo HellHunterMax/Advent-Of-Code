@@ -13,16 +13,16 @@ namespace Advent_Of_Code.Tests.Day6
         [Theory]
         [InlineData(18, 26)]
         [InlineData(80, 5934)]
-        public void Count_After_AddXDays_Returns_NumberOfLanternFish(int days, int expected)
+        //[InlineData(256, 26984457539)]
+        public void Count_After_AddXDays_Returns_NumberOfLanternFish(int days, long expected)
         {
             List<int> initialFish = new() { 3, 4, 3, 1, 2 };
             LanternFishScanner lanternFishScaner = new(initialFish);
 
             lanternFishScaner.AddDays(days);
-            int actual = lanternFishScaner.FishCount();
+            var actual = lanternFishScaner.CountFish();
 
             Assert.Equal(expected, actual);
-
         }
     }
 }
