@@ -8,7 +8,7 @@ namespace Advent_Of_Code.Day6
 {
     public class LanternFishHack
     {
-        Dictionary<int, long> Fish = new Dictionary<int, long>()
+        Dictionary<int, long> Fish = new()
         {
             {-1, 0},
             { 0, 0},

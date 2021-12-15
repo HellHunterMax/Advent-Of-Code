@@ -23,7 +23,7 @@ namespace Advent_Of_Code.Day6
         {
             foreach (var fishAge in initialFish)
             {
-                LanternFish fish = new LanternFish(fishAge);
+                LanternFish fish = new(fishAge);
                 LanternFish.Add(fish);
                 DayAdded += fish.OnDayAdded;
             }
@@ -48,10 +48,7 @@ namespace Advent_Of_Code.Day6
 
         protected virtual void OnDayAdded()
         {
-            if (DayAdded != null)
-            {
-                DayAdded(this, EventArgs.Empty);
-            }
+            DayAdded?.Invoke(this, EventArgs.Empty);
         }
     }
 }

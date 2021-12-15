@@ -2,7 +2,7 @@
 {
     public class LifeSupport : IPower
     {
-        private List<string> _report = new List<string>();
+        private List<string> _report = new();
         private string _oxygen = String.Empty;
         private string _scrubber = String.Empty;
 
@@ -53,7 +53,7 @@
             }
         }
 
-        private char FindScrubberNumber(int zerosMoreLessOrEqual)
+        private static char FindScrubberNumber(int zerosMoreLessOrEqual)
         {
             if (zerosMoreLessOrEqual == 1)
             {
@@ -94,7 +94,7 @@
             }
         }
 
-        private char FindOxygenNumber(int zerosMoreLessOrEqual)
+        private static char FindOxygenNumber(int zerosMoreLessOrEqual)
         {
             if (zerosMoreLessOrEqual == 1)
             {
